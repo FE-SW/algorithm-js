@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=0;
+                for(let x of s){
+                    if(x===t) answer++;
+                }
+                return answer;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=s.split(t).length;
+                return answer-1;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html>
+=================================================
+function solution(str,letter) {
+    let result = 0
+    if((typeof(str)==='string')){
+        for(let i=0; i<str.length; i++){
+            if(str[i]===letter) result+=1
+        }
+    }
+   return result
+}
+console.log(solution('COMPUTERPROGRAMMING','R'))

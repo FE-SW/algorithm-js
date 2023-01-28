@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer;
+                let mid=Math.floor(s.length/2)
+                if(s.length%2===1) answer=s.substring(mid, mid+1);
+                else answer=s.substring(mid-1, mid+1);
+                //if(s.length%2===1) answer=s.substr(mid, 1);
+                //else answer=s.substr(mid-1, 2);
+                return answer;
+            }
+            console.log(solution("study"));
+        </script>
+    </body>
+</html>
+//str.substr(시작 인덱스, 추출 갯수)
+//str.substring(시작 인덱스번호, 끝 인덱스번호) (마지막 인덱스 포함안됨)
+=============================================
+function solution(arr) {
+    let result = ""
+    if(typeof(arr)==="string"){
+        const mid = Math.floor(arr.length/2)
+        if(arr.length%2 ===0){
+            result = arr[mid-1] + arr[mid]  
+        }
+        else{
+            result = arr[mid]
+        }
+    }
+    return result
+}
+console.log(solution("good"))
+

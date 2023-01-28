@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+                //console.log(s.indexOf("K"));
+                for(let i=0; i<s.length; i++){
+                    //console.log(s[i], i, s.indexOf(s[i]));
+                    if(s.indexOf(s[i])===i) answer+=s[i];
+                }
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>
+//https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+
+======================================
+function solution(str) {
+   const uniq = [...new Set(str)];
+   let result = ''
+   if(Array.isArray(uniq)){
+     for(let i=0; i<uniq.length; i++){
+        result += uniq[i]
+     }
+    return result
+   }
+}
+console.log(solution("ksekkset"))

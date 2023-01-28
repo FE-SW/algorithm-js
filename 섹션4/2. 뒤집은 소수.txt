@@ -1,0 +1,73 @@
+            function isPrime(num){
+                if(num===1) return false;
+                for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+                    if(num%i===0) return false;
+                }
+                return true;
+            }
+            function solution(arr){
+                let answer=[];
+                for(let x of arr){
+                    let res=0;
+                    while(x){ //소수만들기
+                        let t=x%10;
+                        res=res*10+t;
+                        x=parseInt(x/10); //x=Math.floor(x/10);
+                    }
+                    if(isPrime(res)) answer.push(res);
+                }
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            console.log(solution(arr));
+
+========================================================
+            function isPrime(num){
+                if(num===1) return false;
+                for(let i=2; i<=parseInt(Math.sqrt(num)); i++){
+                    if(num%i===0) return false;
+                }
+                return true;
+            }
+            function solution(arr){
+                let answer=[];
+                for(let x of arr){
+                    let res=Number(x.toString().split('').reverse().join(''));
+                    if(isPrime(res)) answer.push(res);
+                }
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            console.log(solution(arr));
+================================================
+function isPrime(num) {
+  if(num === 1) {
+    return false;
+  }
+  if(num === 2) {
+    return true;
+  }
+  
+  for(let i = 2; i <= Math.floor(Math.sqrt(num)); i++){
+    if(num % i === 0){
+      return false; 
+    }
+  }
+  return true; 
+}
+
+function solution(arr) {
+    const result = []
+    
+    for(let x =0; x<arr.length; x++){
+        const revInt = Number(String(arr[x]).split('').reverse().join(''));
+        if(isPrime(revInt)){
+            result.push(revInt)
+        }
+    }
+    return result
+}
+
+console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]))

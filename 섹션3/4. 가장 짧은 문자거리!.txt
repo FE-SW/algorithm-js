@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=[];
+                let p=1000;
+                for(let x of s){
+                    if(x===t){
+                        p=0;
+                        answer.push(p);
+                    }
+                    else{
+                        p++;
+                        answer.push(p);
+                    }
+                }
+                p=1000;
+                for(let i=s.length-1; i>=0; i--){
+                    if(s[i]===t) p=0;
+                    else{
+                        p++;
+                        answer[i]=Math.min(answer[i], p);
+                    }
+                }
+                return answer;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
+===================================================
+function solution(str,letter) {
+    let result = ''
+    let pos = 0
+    const search = []
+    console.log(str.indexOf(letter))
+    
+    while (true) {
+        let foundPos = str.indexOf(letter, pos);
+        if (foundPos == -1) break;
+        search.push(foundPos)
+        pos = foundPos + 1; 
+    }
+    
+    for (let x=0; x<str.length; x++){
+        let min = 1000
+        for (let y of search){
+            if(x-y >=0 && x-y<min){
+                min = x-y
+            }
+            if(y-x >=0 && y-x<min){
+                min = y-x
+            }
+        }
+        result+=String(min)
+    }
+    return result
+}
+
+console.log(solution('teachermode','e'))

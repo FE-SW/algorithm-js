@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                s=s.toLowerCase().replace(/[^a-z]/g, '');
+                if(s.split('').reverse().join('')!==s) return "NO";
+                return answer;
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+==================================================
+function solution(str) {
+    if(typeof(str)==='string'){
+         str = str.toLowerCase()
+         str = str.split(' ').join('').replace(/[^a-z]/g, '');
+    }
+    const n = str.length
+    let result = 'YES'
+    console.log(str)
+        
+    if(n%2==0){
+        for(let i=0; i<n/2; i++){
+            if(str[i] !== str[n-1-i]){
+                result = 'NO'
+                break;
+            }
+        }
+    }
+    else{
+         for(let i=0; i<Math.floor(n/2); i++){
+            if(str[i] !== str[n-1-i]){
+                result = 'NO'
+                break;
+            }
+        }
+    }
+    return result
+    
+    
+}
+
+console.log(solution('found7, time: study; Yduts; emit, 7Dnuof'))
